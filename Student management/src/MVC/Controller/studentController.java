@@ -21,7 +21,7 @@ public class studentController {
     public static void registerStudent(String name, String id, String email, String phone, String address, String dob,
             int mathGrade, int englishGrade, String classId) {
         // check if the student is already exist
-        if (!checkStudent(id) || !checkEmail(email) || !checkPhone(phone)) {
+        if (!(checkStudent(id) || checkEmail(email) || checkPhone(phone))) {
 
             StudentModel student = new StudentModel(name, id, email, phone, address, dob, mathGrade, englishGrade,
                     classId);
