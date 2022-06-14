@@ -12,7 +12,7 @@ import java.io.*;
 
 public class studentController {
     // List of students
-    static ArrayList<StudentModel> studentList = new ArrayList<StudentModel>();
+    public static ArrayList<StudentModel> studentList = new ArrayList<StudentModel>();
 
     // Create a new studentModel object, add it to studentList, and write to file
     // String name, String id, String email, String phone, String address, String
@@ -29,6 +29,7 @@ public class studentController {
             String studentInfo2 = student.getStudentInfo2();
             String fileName = "student.csv";
             writeStudentToFile(fileName, studentInfo2);
+
         } else {
             if (checkStudent(id)) {
                 JOptionPane.showMessageDialog(null, "Student already exists");
@@ -58,6 +59,8 @@ public class studentController {
 
     // get studentList
     public static ArrayList<StudentModel> getStudentList() {
+        String fileName = "student.csv";
+        readStudentFromFile(fileName, studentList);
         return studentList;
     }
 

@@ -17,7 +17,7 @@ import MVC.Model.StudentModel;
 public class StudentListGUI extends javax.swing.JFrame {
 
     // Student list
-    private ArrayList<StudentModel> studentList = new ArrayList<StudentModel>();
+    // private ArrayList<StudentModel> studentList = new ArrayList<StudentModel>();
 
     /**
      * Creates new form StudentListGUI
@@ -25,8 +25,7 @@ public class StudentListGUI extends javax.swing.JFrame {
 
     public StudentListGUI() {
         initComponents();
-        clearTable();
-        populateTable();
+        refreshTable();
 
     }
 
@@ -135,6 +134,7 @@ public class StudentListGUI extends javax.swing.JFrame {
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
         MVC.Controller.studentController.addStudent();
+
         this.dispose();
     }// GEN-LAST:event_addBtnActionPerformed
 
@@ -184,10 +184,10 @@ public class StudentListGUI extends javax.swing.JFrame {
     // populate table, read from studentList and write to table with their id, name,
     // class, math, eng, gpa
     public void populateTable() {
-        studentList = MVC.Controller.studentController.getStudentList();
+        MVC.Controller.studentController.studentList = MVC.Controller.studentController.getStudentList();
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
-        for (StudentModel student : studentList) {
+        for (StudentModel student : MVC.Controller.studentController.studentList) {
             model.addRow(
                     new Object[] { student.getId(), student.getName(), student.getClassId(), student.getMathGrade(),
                             student.getEnglishGrade(), student.getGpa() });
@@ -197,7 +197,9 @@ public class StudentListGUI extends javax.swing.JFrame {
 
     // clear table, delete all from studentList
     public void clearTable() {
-        studentList.clear();
+        for (int i = MVC.Controller.studentController.studentList.size() - 1; i >= 0; i--) {
+            MVC.Controller.studentController.studentList.remove(i);
+        }
         DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
 
@@ -205,7 +207,8 @@ public class StudentListGUI extends javax.swing.JFrame {
 
     // refresh table
     public void refreshTable() {
-
+        clearTable();
+        populateTable();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
