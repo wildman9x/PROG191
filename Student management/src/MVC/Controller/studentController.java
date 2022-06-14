@@ -16,18 +16,62 @@ public class studentController {
     // dob, int mathGrade,
     // int englishGrade, double gpa, String classId
     public static void registerStudent(String name, String id, String email, String phone, String address, String dob,
-            int mathGrade, int englishGrade, double gpa, String classId) {
+            int mathGrade, int englishGrade, String classId) {
         // check if the student is already exist
-        if (!checkStudent(id)) {
-            StudentModel student = new StudentModel(name, id, email, phone, address, dob, mathGrade, englishGrade, gpa,
+        if (!checkStudent(id) || !checkEmail(email) || !checkPhone(phone)) {
+
+            StudentModel student = new StudentModel(name, id, email, phone, address, dob, mathGrade, englishGrade,
                     classId);
             // String studentInfo = student.getStudentInfo();
             String studentInfo2 = student.getStudentInfo2();
             String fileName = "student.csv";
             writeStudentToFile(fileName, studentInfo2);
         } else {
-            JOptionPane.showMessageDialog(null, "Student already exists");
+            if (checkStudent(id)) {
+                JOptionPane.showMessageDialog(null, "Student already exists");
+            }
+            if (checkEmail(email)) {
+                JOptionPane.showMessageDialog(null, "Invalid email address");
+            }
+            if (checkPhone(phone)) {
+                JOptionPane.showMessageDialog(null, "Invalid phone number");
+            }
         }
+    }
+
+    // check the email format
+    public static boolean checkEmail(String email) {
+        boolean isValid = false;
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." + "[a-zA-Z0-9_+&*-]+)*@"
+                + "(?:[a-zA-Z0-9-]+\\.)+[a-z" + "A-Z]{2,7}$";
+        if (email.matches(emailRegex)) {
+            isValid = true;
+        }
+        return isValid;
+    }
+
+    // check the date format
+    public static boolean checkDate(String date) {
+        boolean isValid = false;
+        String dateRegex = "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)"
+                + "(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|"
+                + "(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|"
+                + "(?:(?:16|[2468][048]|[3579][26])00))))$|"
+                + "(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$";
+        if (date.matches(dateRegex)) {
+            isValid = true;
+        }
+        return isValid;
+    }
+
+    // Check phone number format
+    public static boolean checkPhone(String phone) {
+        boolean isValid = false;
+        String phoneRegex = "^[0-9]{10}$";
+        if (phone.matches(phoneRegex)) {
+            isValid = true;
+        }
+        return isValid;
     }
 
     private static void writeStudentToFile(String fileName, String studentInfo) {
