@@ -254,7 +254,6 @@ public class studentController {
     public static void cancel() {
         StudentListGUI studentListGUI = new StudentListGUI();
         studentListGUI.setVisible(true);
-
     }
 
     // add button click, change to addStudentGUI

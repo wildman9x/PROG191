@@ -4,6 +4,8 @@
  */
 package MVC.View;
 
+import java.util.ArrayList;
+
 import javax.swing.table.DefaultTableModel;
 
 import MVC.Model.StudentModel;
@@ -14,11 +16,17 @@ import MVC.Model.StudentModel;
  */
 public class StudentListGUI extends javax.swing.JFrame {
 
+    // Student list
+    private ArrayList<StudentModel> studentList = new ArrayList<StudentModel>();
+
     /**
      * Creates new form StudentListGUI
      */
+
     public StudentListGUI() {
         initComponents();
+        clearTable();
+        populateTable();
 
     }
 
@@ -31,6 +39,7 @@ public class StudentListGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -39,6 +48,7 @@ public class StudentListGUI extends javax.swing.JFrame {
         addBtn = new javax.swing.JButton();
         editBtn = new javax.swing.JButton();
         infoBtn = new javax.swing.JButton();
+        refreshBtn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
@@ -66,6 +76,14 @@ public class StudentListGUI extends javax.swing.JFrame {
         infoBtn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         infoBtn.setText("Info");
 
+        refreshBtn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        refreshBtn.setText("Refresh");
+        refreshBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshBtnActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -81,6 +99,8 @@ public class StudentListGUI extends javax.swing.JFrame {
                                         .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(infoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140,
+                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(refreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(54, Short.MAX_VALUE)));
         layout.setVerticalGroup(
@@ -96,6 +116,9 @@ public class StudentListGUI extends javax.swing.JFrame {
                                                         javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(infoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55,
+                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(37, 37, 37)
+                                                .addComponent(refreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55,
                                                         javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 479,
                                                 javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -103,6 +126,11 @@ public class StudentListGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_refreshBtnActionPerformed
+        // TODO add your handling code here:
+        refreshTable();
+    }// GEN-LAST:event_refreshBtnActionPerformed
 
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
@@ -153,14 +181,31 @@ public class StudentListGUI extends javax.swing.JFrame {
         });
     }
 
-    // populate the table with the students
+    // populate table, read from studentList and write to table with their id, name,
+    // class, math, eng, gpa
     public void populateTable() {
-        DefaultTableModel model = (DefaultTableModel) studentTable.getModel();
+        studentList = MVC.Controller.studentController.getStudentList();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         model.setRowCount(0);
-        for (StudentModel student : MVC.Model.studentModel.getStudents()) {
-            model.addRow(new Object[] { student.getId(), student.getName(), student.getSurname(), student.getAge(),
-                    student.getCourse() });
+        for (StudentModel student : studentList) {
+            model.addRow(
+                    new Object[] { student.getId(), student.getName(), student.getClassId(), student.getMathGrade(),
+                            student.getEnglishGrade(), student.getGpa() });
         }
+
+    }
+
+    // clear table, delete all from studentList
+    public void clearTable() {
+        studentList.clear();
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+
+    }
+
+    // refresh table
+    public void refreshTable() {
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -169,5 +214,6 @@ public class StudentListGUI extends javax.swing.JFrame {
     private javax.swing.JButton infoBtn;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton refreshBtn;
     // End of variables declaration//GEN-END:variables
 }
