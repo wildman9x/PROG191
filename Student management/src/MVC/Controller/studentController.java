@@ -2,9 +2,12 @@ package MVC.Controller;
 
 import MVC.Model.*;
 import MVC.View.*;
+import MVC.View.StudentListGUI;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 import java.io.*;
 
 public class studentController {
@@ -37,6 +40,32 @@ public class studentController {
                 JOptionPane.showMessageDialog(null, "Invalid phone number");
             }
         }
+    }
+
+    // populate table, read from studentList and write to table with their id, name,
+    // class, math, eng, gpa
+    public static void populateTable(JTable table) {
+        // clear table
+        table.setModel(new DefaultTableModel());
+        // populate table
+        for (StudentModel student : studentList) {
+            String[] row = { student.getId(), student.getName(), student.getClassId(), student.getMathGrade() + "",
+                    student.getEnglishGrade() + "", student.getGpa() + "" };
+            ((DefaultTableModel) table.getModel()).addRow(row);
+        }
+
+    }
+
+    // get studentList
+    public static ArrayList<StudentModel> getStudentList() {
+        return studentList;
+    }
+
+    // initial function that read from file and populate studentList
+    public static void init(JTable table) {
+        String fileName = "student.csv";
+        readStudentFromFile(fileName, studentList);
+        populateTable(table);
     }
 
     // check the email format
@@ -221,4 +250,16 @@ public class studentController {
         }
     }
 
+    // Cancel function that return to StudentListGUI
+    public static void cancel() {
+        StudentListGUI studentListGUI = new StudentListGUI();
+        studentListGUI.setVisible(true);
+
+    }
+
+    // add button click, change to addStudentGUI
+    public static void addStudent() {
+        addStudentGUI addStudentGUI = new addStudentGUI();
+        addStudentGUI.setVisible(true);
+    }
 }
