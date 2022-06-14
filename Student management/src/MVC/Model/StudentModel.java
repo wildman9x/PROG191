@@ -1,6 +1,5 @@
 package MVC.Model;
 
-
 public class StudentModel extends PersonModel {
 
     // Math and English grade
@@ -20,6 +19,16 @@ public class StudentModel extends PersonModel {
         this.mathGrade = mathGrade;
         this.englishGrade = englishGrade;
         this.gpa = gpa;
+        this.classId = classId;
+    }
+
+    // StudentModel method but dont take in gpa
+    public StudentModel(String name, String id, String email, String phone, String address, String dob, int mathGrade,
+            int englishGrade, String classId) {
+        super(name, id, email, phone, address, dob);
+        this.mathGrade = mathGrade;
+        this.englishGrade = englishGrade;
+        this.gpa = calculateGpa();
         this.classId = classId;
     }
 
@@ -45,6 +54,12 @@ public class StudentModel extends PersonModel {
 
     public void setGpa(double gpa) {
         this.gpa = gpa;
+    }
+
+    // calculate GPA
+    public double calculateGpa() {
+        double gpa = (getMathGrade() + getEnglishGrade()) / 2;
+        return gpa;
     }
 
     public String getClassId() {
