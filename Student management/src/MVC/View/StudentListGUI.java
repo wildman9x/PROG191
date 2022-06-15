@@ -42,7 +42,9 @@ public class StudentListGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -51,17 +53,23 @@ public class StudentListGUI extends javax.swing.JFrame {
         editBtn = new javax.swing.JButton();
         infoBtn = new javax.swing.JButton();
         refreshBtn = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
+        studentCount = new javax.swing.JLabel();
+        deleteAllBtn = new javax.swing.JButton();
+        sortGPAAsc = new javax.swing.JButton();
+        sortGPADesc = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
+            new Object [][] {
 
-                },
-                new String[] {
-                        "ID", "Name", "Class", "Math", "English", "GPA"
-                }));
+            },
+            new String [] {
+                "ID", "Name", "Class", "Math", "English", "GPA"
+            }
+        ));
         jScrollPane1.setViewportView(jTable1);
 
         addBtn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -96,48 +104,119 @@ public class StudentListGUI extends javax.swing.JFrame {
             }
         });
 
+        deleteBtn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        deleteBtn.setText("Delete");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
+
+        studentCount.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        studentCount.setText("Number of students: ");
+
+        deleteAllBtn.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        deleteAllBtn.setText("Delete all");
+        deleteAllBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteAllBtnActionPerformed(evt);
+            }
+        });
+
+        sortGPAAsc.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        sortGPAAsc.setText("Sort GPA ↑");
+        sortGPAAsc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortGPAAscActionPerformed(evt);
+            }
+        });
+
+        sortGPADesc.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        sortGPADesc.setText("Sort GPA ↓");
+        sortGPADesc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortGPADescActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(infoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(refreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(54, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(studentCount))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(infoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(refreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteAllBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sortGPAAsc)
+                    .addComponent(sortGPADesc))
+                .addContainerGap(52, Short.MAX_VALUE))
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(infoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(37, 37, 37)
-                                                .addComponent(refreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 479,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(31, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(studentCount))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(addBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(editBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(infoBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(refreshBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(sortGPAAsc, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(sortGPADesc, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(deleteBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(deleteAllBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void sortGPAAscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortGPAAscActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sortGPAAscActionPerformed
+
+    private void sortGPADescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortGPADescActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sortGPADescActionPerformed
+
+    private void deleteAllBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteAllBtnActionPerformed
+        // TODO add your handling code here:
+        MVC.Controller.studentController.deleteAllStudent();
+        refreshTable();
+    }// GEN-LAST:event_deleteAllBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_deleteBtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        if (selectedRow < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row first");
+            return;
+        }
+        String id = (String) jTable1.getValueAt(selectedRow, 0);
+        MVC.Controller.studentController.deleteStudent(id);
+        refreshBtnActionPerformed(evt);
+
+    }// GEN-LAST:event_deleteBtnActionPerformed
 
     private void infoBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_infoBtnActionPerformed
         // TODO add your handling code here:
@@ -169,6 +248,7 @@ public class StudentListGUI extends javax.swing.JFrame {
             MVC.Controller.studentController.idToFind = id;
             MVC.View.editStudentGUI editStudentGUI = new MVC.View.editStudentGUI();
             editStudentGUI.setVisible(true);
+            row = -1;
             this.dispose();
         }
     }// GEN-LAST:event_editBtnActionPerformed
@@ -252,18 +332,29 @@ public class StudentListGUI extends javax.swing.JFrame {
 
     }
 
+    // Count number of students
+    public void countStudents() {
+        studentCount.setText("Number of students: " + MVC.Controller.studentController.studentList.size());
+    }
+
     // refresh table
     public void refreshTable() {
         clearTable();
         populateTable();
+        countStudents();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addBtn;
+    private javax.swing.JButton deleteAllBtn;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JButton editBtn;
     private javax.swing.JButton infoBtn;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton refreshBtn;
+    private javax.swing.JButton sortGPAAsc;
+    private javax.swing.JButton sortGPADesc;
+    private javax.swing.JLabel studentCount;
     // End of variables declaration//GEN-END:variables
 }

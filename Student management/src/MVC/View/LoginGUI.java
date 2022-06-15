@@ -134,6 +134,7 @@ public class LoginGUI extends javax.swing.JFrame {
         String username = usernameField.getText();
         String password = String.valueOf(PasswordField.getPassword());
         MVC.Controller.loginController.loginUser(username, password);
+        this.dispose();
     }// GEN-LAST:event_LogInBtnActionPerformed
 
     private void PasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_PasswordFieldActionPerformed

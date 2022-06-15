@@ -25,6 +25,10 @@ public class loginController {
         }
         if (isLogin) {
             JOptionPane.showMessageDialog(null, "Login successfully");
+            // go to StudenListGUI
+            StudentListGUI studentListGUI = new StudentListGUI();
+            studentListGUI.setVisible(true);
+
         } else {
             JOptionPane.showMessageDialog(null, "Login failed");
         }

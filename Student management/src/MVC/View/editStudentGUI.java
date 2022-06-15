@@ -7,6 +7,8 @@ package MVC.View;
 import java.awt.event.KeyEvent;
 import java.lang.ModuleLayer.Controller;
 
+import javax.swing.JOptionPane;
+
 import MVC.Model.StudentModel;
 
 /**
@@ -292,8 +294,22 @@ public class editStudentGUI extends javax.swing.JFrame {
         String email = emailField.getText();
         String address = addressField.getText();
         String classID = classField.getText();
+
+        // if engGradeField.getText() and mathGradeField.getText() are not instance of
+        // Integer,
+        // then throw an exception
+        try {
+            Integer.parseInt(engGradeField.getText());
+            Integer.parseInt(mathGradeField.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Please enter valid grades", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
         int eng = Integer.parseInt(engGradeField.getText());
         int math = Integer.parseInt(mathGradeField.getText());
+        // if eng and math are not integer, display error message
+
         MVC.Controller.studentController.editStudent(name, id, email, phone, address, dob, math, eng, classID);
         MVC.Controller.studentController.cancel();
         this.dispose();

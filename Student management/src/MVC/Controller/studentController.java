@@ -21,7 +21,8 @@ public class studentController {
     public static void registerStudent(String name, String id, String email, String phone, String address, String dob,
             int mathGrade, int englishGrade, String classId) {
         // check if the student is already exist
-        if (!checkStudent(id) && checkEmail(email) && checkPhone(phone)) {
+        if (!checkStudent(id) && checkEmail(email) && checkPhone(phone) && checkGrade(englishGrade)
+                && checkGrade(mathGrade)) {
 
             StudentModel student = new StudentModel(name, id, email, phone, address, dob, mathGrade, englishGrade,
                     classId);
@@ -39,6 +40,12 @@ public class studentController {
             }
             if (!checkPhone(phone)) {
                 JOptionPane.showMessageDialog(null, "Invalid phone number");
+            }
+            if (!checkGrade(englishGrade)) {
+                JOptionPane.showMessageDialog(null, "Invalid english grade");
+            }
+            if (!checkGrade(mathGrade)) {
+                JOptionPane.showMessageDialog(null, "Invalid math grade");
             }
         }
     }
@@ -180,7 +187,8 @@ public class studentController {
     public static void editStudent(String name, String id, String email, String phone, String address, String dob,
             int mathGrade, int englishGrade, String classId) {
         StudentModel student = findStudent(id);
-        if (student != null) {
+        if (student != null && checkEmail(email) && checkPhone(phone) && checkGrade(englishGrade)
+                && checkGrade(mathGrade)) {
             student.setName(name);
             student.setEmail(email);
             student.setPhone(phone);
@@ -189,19 +197,20 @@ public class studentController {
             student.setMathGrade(mathGrade);
             student.setEnglishGrade(englishGrade);
             // calculate gpa
-            student.calculateGpa();
+            student.calculateGpa2();
             student.setClassId(classId);
 
-            studentList = getStudentList();
+            // studentList.clear();
+            // studentList = getStudentList();
             // deleteAllStudent();
             // go through the list, find the student with matching id, delete it
             deleteStudent(id);
             String fileName = "student.csv";
-            // write all the list back to file
-            for (StudentModel s : studentList) {
-                String studentInfo = s.getStudentInfo2();
-                writeStudentToFile(fileName, studentInfo);
-            }
+            // // write all the list back to file
+            // for (StudentModel s : studentList) {
+            // String studentInfo = s.getStudentInfo2();
+            // writeStudentToFile(fileName, studentInfo);
+            // }
 
             String studentInfo2 = student.getStudentInfo2();
 
@@ -209,9 +218,22 @@ public class studentController {
 
             // success dialog
             JOptionPane.showMessageDialog(null, "Edit student successfully");
-        } else {
+        } else if (student == null) {
             JOptionPane.showMessageDialog(null, "Student not found");
         }
+        if (!checkEmail(email)) {
+            JOptionPane.showMessageDialog(null, "Email is not valid");
+        }
+        if (!checkPhone(phone)) {
+            JOptionPane.showMessageDialog(null, "Phone is not valid");
+        }
+        if (checkGrade(englishGrade) == false) {
+            JOptionPane.showMessageDialog(null, "English grade is not valid");
+        }
+        if (checkGrade(mathGrade) == false) {
+            JOptionPane.showMessageDialog(null, "Math grade is not valid");
+        }
+
     }
 
     // Find student by name and return a list of students
@@ -272,6 +294,15 @@ public class studentController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    // check grade if it is valid
+    public static boolean checkGrade(int grade) {
+        boolean isValid = false;
+        if (grade >= 0 && grade <= 100) {
+            isValid = true;
+        }
+        return isValid;
     }
 
     // Cancel function that return to StudentListGUI

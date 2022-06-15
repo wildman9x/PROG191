@@ -58,8 +58,13 @@ public class StudentModel extends PersonModel {
 
     // calculate GPA
     public double calculateGpa() {
-        double gpa = (getMathGrade() + getEnglishGrade()) / 2;
+        double gpa = (double) (getMathGrade() + getEnglishGrade()) / 2;
         return gpa;
+    }
+
+    // void function calculateGpa()
+    public void calculateGpa2() {
+        setGpa(calculateGpa());
     }
 
     public String getClassId() {
