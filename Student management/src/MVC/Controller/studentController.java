@@ -21,7 +21,7 @@ public class studentController {
     public static void registerStudent(String name, String id, String email, String phone, String address, String dob,
             int mathGrade, int englishGrade, String classId) {
         // check if the student is already exist
-        if (!(checkStudent(id) || checkEmail(email) || checkPhone(phone))) {
+        if (!checkStudent(id) && checkEmail(email) && checkPhone(phone)) {
 
             StudentModel student = new StudentModel(name, id, email, phone, address, dob, mathGrade, englishGrade,
                     classId);
@@ -34,10 +34,10 @@ public class studentController {
             if (checkStudent(id)) {
                 JOptionPane.showMessageDialog(null, "Student already exists");
             }
-            if (checkEmail(email)) {
+            if (!checkEmail(email)) {
                 JOptionPane.showMessageDialog(null, "Invalid email address");
             }
-            if (checkPhone(phone)) {
+            if (!checkPhone(phone)) {
                 JOptionPane.showMessageDialog(null, "Invalid phone number");
             }
         }
@@ -158,10 +158,15 @@ public class studentController {
         }
     }
 
+    // StudentID to find
+    public static String idToFind;
+
     // Find student by id
     public static StudentModel findStudent(String id) {
         StudentModel student = null;
         String fileName = "student.csv";
+        // clear studentList
+        studentList.clear();
         readStudentFromFile(fileName, studentList);
         for (StudentModel s : studentList) {
             if (s.getId().equals(id)) {
@@ -172,8 +177,8 @@ public class studentController {
     }
 
     // edit student provided with id
-    public static void editStudent(String id, String name, String email, String phone, String address, String dob,
-            int mathGrade, int englishGrade, double gpa, String classId) {
+    public static void editStudent(String name, String id, String email, String phone, String address, String dob,
+            int mathGrade, int englishGrade, String classId) {
         StudentModel student = findStudent(id);
         if (student != null) {
             student.setName(name);
@@ -183,11 +188,27 @@ public class studentController {
             student.setDob(dob);
             student.setMathGrade(mathGrade);
             student.setEnglishGrade(englishGrade);
-            student.setGpa(gpa);
+            // calculate gpa
+            student.calculateGpa();
             student.setClassId(classId);
-            String studentInfo2 = student.getStudentInfo2();
+
+            studentList = getStudentList();
+            // deleteAllStudent();
+            // go through the list, find the student with matching id, delete it
+            deleteStudent(id);
             String fileName = "student.csv";
+            // write all the list back to file
+            for (StudentModel s : studentList) {
+                String studentInfo = s.getStudentInfo2();
+                writeStudentToFile(fileName, studentInfo);
+            }
+
+            String studentInfo2 = student.getStudentInfo2();
+
             writeStudentToFile(fileName, studentInfo2);
+
+            // success dialog
+            JOptionPane.showMessageDialog(null, "Edit student successfully");
         } else {
             JOptionPane.showMessageDialog(null, "Student not found");
         }
