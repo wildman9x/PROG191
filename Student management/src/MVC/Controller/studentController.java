@@ -243,7 +243,7 @@ public class studentController {
         readStudentFromFile(fileName, studentList);
         ArrayList<StudentModel> studentList2 = new ArrayList<StudentModel>();
         for (StudentModel student : studentList) {
-            if (student.getName().equals(name)) {
+            if (student.getName().contains(name)) {
                 studentList2.add(student);
             }
         }
@@ -315,5 +315,33 @@ public class studentController {
     public static void addStudent() {
         addStudentGUI addStudentGUI = new addStudentGUI();
         addStudentGUI.setVisible(true);
+    }
+
+    // Sort the student list by gpa ascending
+    public static void sortStudentByGpaAscending() {
+        studentList.clear();
+        studentList = getStudentList();
+        Collections.sort(studentList, new Comparator<StudentModel>() {
+            @Override
+            public int compare(StudentModel o1, StudentModel o2) {
+                // round up the return
+                return (int) Math.round(o1.getGpa() - o2.getGpa());
+            }
+        });
+        // studentList.clear();
+    }
+
+    // Sort the student list by gpa descending
+    public static void sortStudentByGpaDescending() {
+        studentList.clear();
+        studentList = getStudentList();
+        Collections.sort(studentList, new Comparator<StudentModel>() {
+            @Override
+            public int compare(StudentModel o1, StudentModel o2) {
+                // round up the return
+                return (int) Math.round(o2.getGpa() - o1.getGpa());
+            }
+        });
+        // studentList.clear();
     }
 }

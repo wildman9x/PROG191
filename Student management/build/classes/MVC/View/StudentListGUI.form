@@ -29,19 +29,30 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" alignment="0" min="-2" pref="630" max="-2" attributes="0"/>
-                  <Component id="studentCount" alignment="0" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="addBtn" min="-2" pref="140" max="-2" attributes="0"/>
-                  <Component id="editBtn" min="-2" pref="140" max="-2" attributes="0"/>
-                  <Component id="infoBtn" min="-2" pref="140" max="-2" attributes="0"/>
-                  <Component id="refreshBtn" min="-2" pref="140" max="-2" attributes="0"/>
-                  <Component id="deleteBtn" min="-2" pref="140" max="-2" attributes="0"/>
-                  <Component id="deleteAllBtn" min="-2" pref="140" max="-2" attributes="0"/>
-                  <Component id="sortGPAAsc" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="sortGPADesc" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="searchField" min="-2" pref="461" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="searchNameBtn" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="searchIDBtn" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane1" alignment="0" min="-2" pref="630" max="-2" attributes="0"/>
+                          <Component id="studentCount" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="addBtn" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="editBtn" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="infoBtn" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="refreshBtn" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="deleteBtn" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="deleteAllBtn" min="-2" pref="140" max="-2" attributes="0"/>
+                          <Component id="sortGPAAsc" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="sortGPADesc" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <EmptySpace pref="52" max="32767" attributes="0"/>
           </Group>
@@ -75,7 +86,15 @@
                       <Component id="deleteAllBtn" min="-2" pref="55" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="21" max="32767" attributes="0"/>
+              <EmptySpace pref="41" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="searchField" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                      <Component id="searchNameBtn" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                      <Component id="searchIDBtn" alignment="3" min="-2" pref="55" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -235,6 +254,35 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sortGPADescActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="searchField">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="36" style="0"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="searchNameBtn">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Search name"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchNameBtnActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="searchIDBtn">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Search ID"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchIDBtnActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
