@@ -138,6 +138,7 @@ public class RegisterGUI extends javax.swing.JFrame {
         // Get password
         String password = String.valueOf(PasswordField.getPassword());
         MVC.Controller.registerController.registerUser(username, password);
+        this.dispose();
     }// GEN-LAST:event_RegisterBtnActionPerformed
 
     private void CancelBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_CancelBtnActionPerformed

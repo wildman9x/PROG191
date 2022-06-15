@@ -23,6 +23,10 @@ public class registerController {
             String userInfo2 = user.getUserInfo2();
             String fileName = "user.csv";
             writeUserToFile(fileName, userInfo2);
+            JOptionPane.showMessageDialog(null, "Register successfully");
+            // go to loginGUI
+            LoginGUI loginGUI = new LoginGUI();
+            loginGUI.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "UserName is already exist");
         }
