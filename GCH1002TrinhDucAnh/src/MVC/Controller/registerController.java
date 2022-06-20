@@ -12,6 +12,7 @@ import java.io.FileWriter;
 
 public class registerController {
     static ArrayList<UserModel> userList = new ArrayList<UserModel>();
+    static boolean isRegister = false;
 
     // Create a user object from UserModel and write the login information to file
     // user.csv
@@ -24,6 +25,7 @@ public class registerController {
             String fileName = "user.csv";
             writeUserToFile(fileName, userInfo2);
             JOptionPane.showMessageDialog(null, "Register successfully");
+            isRegister = true;
             // go to loginGUI
             LoginGUI loginGUI = new LoginGUI();
             loginGUI.setVisible(true);
