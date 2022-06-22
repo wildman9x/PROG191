@@ -86,6 +86,12 @@ public class studentController {
         String fileName = "student.csv";
         readStudentFromFile(fileName, studentList);
         populateTable(table);
+        // if table is not null, set isNull to false
+        if (table.getRowCount() > 0) {
+            isNull = false;
+        } else {
+            isNull = true;
+        }
     }
 
     // check the email format
