@@ -36,8 +36,8 @@ public class loginControllerTest {
     @Test
     public void testLoginUserWrong() {
         System.out.println("loginUser");
-        String username = "vavasssaasa";
-        String password = "vavavav";
+        String username = "vavaerbreberberbresssaasa";
+        String password = "vagregergererbervavav";
         loginController instance = new loginController();
         boolean expResult = false;
         instance.loginUser(username, password);
