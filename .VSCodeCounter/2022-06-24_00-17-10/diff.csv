@@ -1,0 +1,30 @@
+"filename", "language", "Java", "comment", "blank", "total"
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\Assignment\PROG191\Student management\src\MVC\Controller\loginController.java", "Java", -62, -10, -14, -86
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\Assignment\PROG191\Student management\src\MVC\Controller\registerController.java", "Java", -67, -13, -8, -88
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\Assignment\PROG191\Student management\src\MVC\Controller\studentController.java", "Java", -266, -48, -34, -348
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\Assignment\PROG191\Student management\src\MVC\Model\ClassModel.java", "Java", -49, -1, -15, -65
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\Assignment\PROG191\Student management\src\MVC\Model\PersonModel.java", "Java", -55, 0, -17, -72
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\Assignment\PROG191\Student management\src\MVC\Model\StudentModel.java", "Java", -89, -7, -20, -116
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\Assignment\PROG191\Student management\src\MVC\Model\TeacherModel.java", "Java", -32, -1, -8, -41
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\Assignment\PROG191\Student management\src\MVC\Model\UserModel.java", "Java", -39, -1, -10, -50
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\Assignment\PROG191\Student management\src\MVC\View\LoginGUI.java", "Java", -135, -37, -20, -192
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\Assignment\PROG191\Student management\src\MVC\View\RegisterGUI.java", "Java", -142, -39, -21, -202
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\Assignment\PROG191\Student management\src\MVC\View\StudentListGUI.java", "Java", -363, -69, -53, -485
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\Assignment\PROG191\Student management\src\MVC\View\addStudentGUI.java", "Java", -296, -40, -36, -372
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\Assignment\PROG191\Student management\src\MVC\View\editStudentGUI.java", "Java", -318, -48, -42, -408
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\Assignment\PROG191\Student management\src\MVC\View\viewStudentGUI.java", "Java", -305, -47, -37, -389
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\GCH1002TrinhDucAnh\src\MVC\Controller\loginController.java", "Java", 63, 10, 14, 87
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\GCH1002TrinhDucAnh\src\MVC\Controller\registerController.java", "Java", 72, 14, 8, 94
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\GCH1002TrinhDucAnh\src\MVC\Controller\studentController.java", "Java", 280, 50, 34, 364
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\GCH1002TrinhDucAnh\src\MVC\Model\ClassModel.java", "Java", 49, 1, 15, 65
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\GCH1002TrinhDucAnh\src\MVC\Model\PersonModel.java", "Java", 55, 0, 17, 72
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\GCH1002TrinhDucAnh\src\MVC\Model\StudentModel.java", "Java", 89, 7, 20, 116
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\GCH1002TrinhDucAnh\src\MVC\Model\TeacherModel.java", "Java", 32, 1, 8, 41
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\GCH1002TrinhDucAnh\src\MVC\Model\UserModel.java", "Java", 39, 1, 10, 50
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\GCH1002TrinhDucAnh\src\MVC\View\LoginGUI.java", "Java", 135, 37, 20, 192
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\GCH1002TrinhDucAnh\src\MVC\View\RegisterGUI.java", "Java", 143, 39, 21, 203
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\GCH1002TrinhDucAnh\src\MVC\View\StudentListGUI.java", "Java", 363, 69, 53, 485
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\GCH1002TrinhDucAnh\src\MVC\View\addStudentGUI.java", "Java", 336, 40, 37, 413
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\GCH1002TrinhDucAnh\src\MVC\View\editStudentGUI.java", "Java", 349, 48, 42, 439
+"c:\Users\wildm\Desktop\Class\Greenwich\PROG191\GCH1002TrinhDucAnh\src\MVC\View\viewStudentGUI.java", "Java", 305, 47, 37, 389
+"Total", "-", 92, 3, 1, 96
