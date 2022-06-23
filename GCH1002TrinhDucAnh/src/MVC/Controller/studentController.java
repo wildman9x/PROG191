@@ -13,6 +13,8 @@ import java.io.*;
 public class studentController {
     // List of students
     public static ArrayList<StudentModel> studentList = new ArrayList<StudentModel>();
+    static boolean isRegister = false;
+    static boolean isNull = true;
 
     // Create a new studentModel object, add it to studentList, and write to file
     // String name, String id, String email, String phone, String address, String
@@ -29,7 +31,9 @@ public class studentController {
             // String studentInfo = student.getStudentInfo();
             String studentInfo2 = student.getStudentInfo2();
             String fileName = "student.csv";
+            isRegister = true;
             writeStudentToFile(fileName, studentInfo2);
+            JOptionPane.showMessageDialog(null, "Register successfully");
 
         } else {
             if (checkStudent(id)) {
@@ -61,6 +65,12 @@ public class studentController {
                     student.getEnglishGrade() + "", student.getGpa() + "" };
             ((DefaultTableModel) table.getModel()).addRow(row);
         }
+        // if number of rows in the table
+        if (table.getRowCount() > 0) {
+            isNull = false;
+        } else {
+            isNull = true;
+        }
 
     }
 
@@ -76,6 +86,12 @@ public class studentController {
         String fileName = "student.csv";
         readStudentFromFile(fileName, studentList);
         populateTable(table);
+        // if table is not null, set isNull to false
+        if (table.getRowCount() > 0) {
+            isNull = false;
+        } else {
+            isNull = true;
+        }
     }
 
     // check the email format

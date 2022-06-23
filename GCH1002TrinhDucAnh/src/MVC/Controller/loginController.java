@@ -9,6 +9,7 @@ import MVC.View.*;
 
 public class loginController {
     static ArrayList<UserModel> userList = new ArrayList<UserModel>();
+    static boolean isLogin = false;
 
     // Read from file user.csv and create a new user object for each line
     // user.csv
@@ -16,7 +17,7 @@ public class loginController {
 
         String fileName = "user.csv";
         readUserFromFile(fileName, userList);
-        boolean isLogin = false;
+        isLogin = false;
         for (UserModel user : userList) {
             if (user.getUserName().equals(userName) && user.getUserPassword().equals(userPassword)) {
                 isLogin = true;
@@ -39,7 +40,7 @@ public class loginController {
 
         String fileName = "user.csv";
         readUserFromFile(fileName, userList);
-        boolean isLogin = false;
+        isLogin = false;
         for (UserModel user : userList) {
             if (user.getUserName().equals(userName) && user.getUserPassword().equals(userPassword)) {
                 isLogin = true;
