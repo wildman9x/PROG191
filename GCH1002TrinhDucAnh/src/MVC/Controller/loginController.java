@@ -32,6 +32,9 @@ public class loginController {
 
         } else {
             JOptionPane.showMessageDialog(null, "Login failed");
+            // reopen LoginGUI
+            LoginGUI loginGUI = new LoginGUI();
+            loginGUI.setVisible(true);
         }
     }
 
